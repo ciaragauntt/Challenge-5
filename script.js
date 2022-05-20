@@ -1,30 +1,50 @@
+//Time at the top of the page
 var today = moment();
 $(currentDay).text(today.format("MMMM Do, YYYY, h:mm:ss a"));
 console.log(today.format());
+//function that changes the color of the row based on the time of day
+function timeTracker(){
+    var currentHour = moment().hour();
+    console.log(currentHour);
 
-var checkTime = function() {
-    var hour = $(".hour").text().trim();
-    var time = moment(hour, "LT");
-    console.log(time)
+    $('.time-block').each(function(){
+    var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
-    $(".hour").removeClass(".present .past .future");
-
-    if (moment().isAfter(time)) {
-        $(".hour").addClass(".past");
-    } else if (moment().isBefore(time)) {
-        $(".hour").addClass(".future");
-    } else {
-        $(".hour").addClass(".present");
+    if (blockTime < currentHour) {
+        $(this).addClass("past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
     }
-
+    else if (blockTime === currentHour) {
+        $(this).removeClass("past");
+        $(this).addClass("future");
+        $(this).removeClass("present");
+    }
+    else {
+        $(this).removeClass("past");
+        $(this).removeClass("future");
+        $(this).addClass("present");
+    }
+})
 }
+timeTracker();
+//on click save to local storage 
+$(document).ready(function(){
+    $(".saveBtn").on("click", function(){
+       
+        var description = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
 
-checkTime();
+        localStorage.setItem(time, description);
+    })
 
-const saveButton = document.querySelector(".saveBtn")
-
-function save() {
-    saveBtn()
-}
-
-saveButton.addEventListener("click", save)
+    $("#hour9 .description").val(localStorage.getItem("hour9"));
+    $("#hour10 .description").val(localStorage.getItem("hour10"));
+    $("#hour11 .description").val(localStorage.getItem("hour11"));
+    $("#hour12 .description").val(localStorage.getItem("hour12"));
+    $("#hour1 .description").val(localStorage.getItem("hour1"));
+    $("#hour2 .description").val(localStorage.getItem("hour2"));
+    $("#hour3 .description").val(localStorage.getItem("hour3"));
+    $("#hour4 .description").val(localStorage.getItem("hour4"));
+    $("#hour5 .description").val(localStorage.getItem("hour5"));
+})

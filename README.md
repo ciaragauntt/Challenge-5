@@ -11,4 +11,4 @@ Edited given starter code to respond to the following guidelines:
  - After writing text in the box selected, you can select the save button which will keep the text on the page when refreshed.
  - Hovering over the save button increases the size of the floppy disk.
 
-Screenshot: (https://user-images.githubusercontent.com/103298079/169626757-d46e8b44-7611-45bc-b2d4-a6094c1f9e25.gif)
+Screenshot: https://drive.google.com/file/d/1Znygil8wlgNkRwxHeyYttDOgtxdJrm2z/view

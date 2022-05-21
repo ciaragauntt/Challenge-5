@@ -1,8 +1,9 @@
 # Work Day Scheduler
 
-URL: 
+URL: https://ciaragauntt.github.io/Challenge-5/
 
-* Edited given starter code to respond to the following guidelines.
+Edited given starter code to respond to the following guidelines: 
+
  - When application is opened the date and time is displayed at the top of the page.
  - Displayed on the page is a calendar with the time of day and a save button.
  - The row with a specific time changes based on the time of day: Past = grey, Present = red, Future = Green.
